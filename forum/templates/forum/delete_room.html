@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Estás seguro que deseas eliminar la sala "{{obj}}"</p>
+        <a href="{{request.META.HTTP_REFERER}}"></a>
+        <input type="submit" value="Confirm">
+
+    </form>
+
+{% endblock content %}

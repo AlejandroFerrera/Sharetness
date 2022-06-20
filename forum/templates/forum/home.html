@@ -2,15 +2,21 @@
 
 {% block content %}
 
-    <h1>🏠Home Template🏠</h1>
 
-    <a href="/create-room" class="h4">Create Room</a>
+    <a href={% url 'create-room' %} class="h4 text-success">Crear sala</a>
+    <hr>
+    <div class="room-container">
+        {% for room in rooms %}
+            <h4 style="display: inline;"><span class="text-info">@{{ room.host.username }}</span></h4> 
+            <a href={% url 'update-room' room.id %} class="text-success h6">Editar</a>
+            <a href={% url 'delete-room' room.id %} class="text-success h6">Borrar</a>
 
-    <ul class="mt-4">
-        {% for room in rooms%}
-            <li class="text-success h4"><a href="room/{{room.id}}">{{ room.id }}-> {{ room.name }}</a></li>
+            <p class="h6">{{ room.id }} -- <a href="/room/{{room.id}}">{{ room.name }}</a></p>
+
+            <p>{{ room.topic }}</p>
+            <hr>
         {% endfor %}
-    </ul>
+    </div>
 
 {% endblock content %}
 
