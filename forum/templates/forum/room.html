@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h2>{{ room.name }}</h2>
+    <h4><span class="text-primary ">@{{ room.host.username }}</span></h4>
+    <p>{{ room.created }}</p>
+
+    <p>Ultima modificación: 
+        {% if room.updated != None %}
+            {{ room.updated }}
+        {% else %}
+            No existen modificaciones
+        {% endif %}      
+    </p>
+    <hr>
+    <p>Descripcion: {{ room.description }}</p>
+    <hr>
+    <ul>
+        {% for msg in room.message_set.all %}
+            <p><span class="text-primary">@{{ msg.user.username }}</span>: {{ msg.body }}</p>
+        {% endfor %}
+    </ul>
+    
+{% endblock content %}

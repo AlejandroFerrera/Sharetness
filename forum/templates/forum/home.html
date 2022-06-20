@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1>🏠Home Template🏠</h1>
+
+    <a href="/create-room" class="h4">Create Room</a>
+
+    <ul class="mt-4">
+        {% for room in rooms%}
+            <li class="text-success h4"><a href="room/{{room.id}}">{{ room.id }}-> {{ room.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
+
+
