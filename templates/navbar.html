@@ -2,4 +2,10 @@
     <h1 class="text-dark ">Sharetness</h1>
 </a>
 
+{% if request.user.is_authenticated %}
+    <p>Hola {{ request.user.username }} </p><a href={% url 'logout' %}>Cerrar Sesión</a>
+{% else %}
+    <a href={% url 'login' %}>Iniciar Sesión</a>
+{% endif %}
+
 <hr>

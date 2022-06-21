@@ -9,10 +9,29 @@
     <hr>
     <p>Descripcion: {{ room.description }}</p>
     <hr>
+
+    {% if request.user.is_authenticated %}
+    
+    <form action="" method="post">
+        <div class="input-group w-75 mx-auto">
+            {% csrf_token %}
+            <input class="w-100" type="text" name="new-msg" id="new-msg" placeholder="Introduzca mensaje">
+        </div>
+    </form>
+    {% endif %}
+
     <ul>
-        {% for msg in room.message_set.all %}
-            <p><span class="text-primary">@{{ msg.user.username }}</span>: {{ msg.body }}</p>
+        {% for msg in room_messages %}
+            <p class="mt-2">
+                {% if request.user == msg.user and msg.was_posted_recently%}
+                <a class="text-danger" href={% url 'delete-message' msg.id%}>Delete</a>
+                {% endif %}
+                <span class="text-primary">@{{ msg.user.username }}</span>
+                <small class="text-info font-italic">{{ msg.created|timesince }}</small>: 
+                <br>
+                {{ msg.body }}
+            </p>
         {% endfor %}
     </ul>
-    
+
 {% endblock content %}
