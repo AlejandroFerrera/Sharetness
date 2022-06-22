@@ -1,0 +1,15 @@
+<div class="room-container">
+    {% for room in rooms %}
+    <div class="room__box">
+        <h4 style="display: inline;"><span class="text-info">@{{ room.host.username }}</span></h4>
+        {% if request.user == room.host %}
+            <a href={% url 'update-room' room.id %} class="text-success h6">Editar</a>
+            <a href={% url 'delete-room' room.id %} class="text-danger h6">Eliminar</a>          
+        {% endif %}
+
+        <p class="h6 mt-3 "><a href="/room/{{room.id}}">{{ room.name }}</a></p>
+        <p>{{ room.topic }}</p>
+        <hr>
+    {% endfor %}
+    </div>
+</div>
