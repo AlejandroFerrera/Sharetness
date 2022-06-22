@@ -1,11 +1,23 @@
-<a href="/">
-    <h1 class="text-dark ">Sharetness</h1>
-</a>
 
-{% if request.user.is_authenticated %}
-    <p>Hola {{ request.user.username }} </p><a href={% url 'logout' %}>Cerrar Sesión</a>
-{% else %}
-    <a href={% url 'login' %}>Iniciar Sesión</a>
-{% endif %}
 
-<hr>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-space">
+    <a href="/">
+        <h1 class="text-white">Sharetness</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav d-flex flex-column align-self-end">
+        {% if request.user.is_authenticated %}
+                <a href={% url 'logout' %}><button class="btn btn-secondary">Cerrar Sesión</button></a>
+        {% else %}
+            <a href={% url 'login' %}> <button class="btn btn-secondary">Iniciar Sesión</button>    </a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>

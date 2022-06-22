@@ -6,9 +6,7 @@
     <h4><span class="text-primary ">@{{ room.host.username }}</span></h4>
     <p>{{ room.created }}</p>
 
-    <hr>
     <p>Descripcion: {{ room.description }}</p>
-    <hr>
 
     {% if request.user.is_authenticated %}
     

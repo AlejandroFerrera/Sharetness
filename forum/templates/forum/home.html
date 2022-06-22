@@ -2,10 +2,17 @@
 
 {% block content %}
 
+    {% if request.user.is_authenticated %}
+        <h3 style="color:white" class="text-center mt-3">
+            Hola <span style="color:#09f">@{{ user }}</span>, únete a una sala o crea una
+        </h3>
+    {% endif %}
 
-    <a href={% url 'create-room' %} class="h4 text-success">Crear sala</a>
-    <hr>
-    {% include 'forum/feed_component.html' %}
+
+    <div class=" d-flex flex-column justify-content-center align-items-center">
+
+        {% include 'forum/feed_component.html' %}
+    </div>
 
 {% endblock content %}
 

@@ -1,0 +1,29 @@
+
+body {
+    background-color: #283845;
+    color: white;
+}
+
+.create__button {
+    margin: 16px
+}
+
+.navbar {
+    background-color: #202C39;
+}
+
+.room__box {
+    background-color: #E9F0D1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.room__topic {
+    background-color: #D1D5AF;
+    padding: 7px 15px;
+    border-radius: 20px;
+    color: gray;
+}
