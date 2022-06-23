@@ -115,15 +115,10 @@ def update_room(request,pk):
 @login_required(login_url='login')
 def delete_room(request,pk):
     room = Room.objects.get(id=pk)
-
     if request.user != room.host:
         return HttpResponse('No tiene permitido entrar acá!!')
-
-    if request.method == "POST":
-        room.delete()
-        return redirect('home')
-
-    return render(request, 'forum/delete_room.html', {'obj':room})
+    room.delete()
+    return redirect('home')
 
 def delete_message(request,pk):
     message = Message.objects.get(id=pk)
@@ -133,3 +128,4 @@ def delete_message(request,pk):
     else:
         messages.error(request, 'Solo se pueden eliminar mensajes creados hace un minuto')
     return redirect('room' ,id_room)
+
