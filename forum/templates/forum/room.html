@@ -1,37 +1,50 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    <div class="room-container">
+    <div class="room-container mt-4 w-75 mx-auto" 
+>
+        <div class="room-header d-flex flex-column">
+            <small class="align-self-end font-italic h6 text-secondary">{{ room.created }}</small>
+            <h2 class="text-primary">{{ room.name }}</h2>
+            
+            <small class="text-secondary">Anfitrión</small>
+            <h4><span class="text-info ">@{{ room.host.username }}</span></h4>
+            <p>Descripcion: {{ room.description }}</p>
+            
+        </div>
 
-        <h2>{{ room.name }}</h2>
-        <h4><span class="text-primary ">@{{ room.host.username }}</span></h4>
-        <p>{{ room.created }}</p>
-    
-        <p>Descripcion: {{ room.description }}</p>
-    
-        {% if request.user.is_authenticated %}
+
+        {% comment %} <p>{{ room.created }}</p> {% endcomment %}
+        <div class="room-messages">
+
         
-        <form action="" method="post">
+            <ul>
+                {% for msg in room_messages %}
+                    <p class="mt-2">
+                        {% if request.user == msg.user and msg.was_posted_recently%}
+                        <a class="text-danger" href={% url 'delete-message' msg.id%}>Delete</a>
+                        {% endif %}
+                        <span class="text-primary">@{{ msg.user.username }}</span>
+                        <small class="text-info font-italic">{{ msg.created|timesince }}</small>: 
+                        <br>
+                        {{ msg.body }}
+                    </p>
+                {% endfor %}
+            </ul>
+
+
+
+        </div>
+
+        {% if request.user.is_authenticated %}
+            
+        <form class="message-input" action="" method="post">
             <div class="input-group w-75 mx-auto">
                 {% csrf_token %}
-                <input class="w-100" type="text" name="new-msg" id="new-msg" placeholder="Introduzca mensaje">
+                <input class="w-100 form-control" type="text" name="new-msg" id="new-msg" placeholder="Introduzca mensaje">
             </div>
         </form>
         {% endif %}
-    
-        <ul>
-            {% for msg in room_messages %}
-                <p class="mt-2">
-                    {% if request.user == msg.user and msg.was_posted_recently%}
-                    <a class="text-danger" href={% url 'delete-message' msg.id%}>Delete</a>
-                    {% endif %}
-                    <span class="text-primary">@{{ msg.user.username }}</span>
-                    <small class="text-info font-italic">{{ msg.created|timesince }}</small>: 
-                    <br>
-                    {{ msg.body }}
-                </p>
-            {% endfor %}
-        </ul>
     </div>
 
 {% endblock content %}

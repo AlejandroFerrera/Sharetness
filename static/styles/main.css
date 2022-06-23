@@ -13,7 +13,7 @@ body {
 }
 
 .room__box {
-    background-color: #E9F0D1;
+    background-color: #f1faee;
 }
 
 .card-header {
@@ -22,8 +22,34 @@ body {
 }
 
 .room__topic {
-    background-color: #D1D5AF;
     padding: 7px 15px;
-    border-radius: 20px;
+    border-radius: 10px;
     color: gray;
+}
+
+.room-container {
+    margin-top: 5px;
+    background-color: #f1faee;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    max-height: 100vh;
+}
+
+.room-header {
+    margin-left: 10px;
+}
+
+.room-messages {
+    background-color: #f1faee;
+    border-radius: 10px;
+    padding:10px;
+    height: 350px;
+    border: 3px solid #283845;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+.message-input {
+    margin-top: 20px;
 }

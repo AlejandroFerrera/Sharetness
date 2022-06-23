@@ -1,7 +1,7 @@
 from django import urls
 from django.shortcuts import redirect, render
 from .models import Message, Room
-from .forms import RoomForm
+from .forms import CreateUserForm, RoomForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -42,10 +42,10 @@ def logout_user(request):
     return redirect('home')
 
 def register_user(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()

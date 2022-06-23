@@ -1,8 +1,9 @@
-<div class="room-container d-flex flex-column">
+<div class=" d-flex flex-column">
     <a href={% url 'create-room' %} class="h4 btn btn-success btn-lg create__button w-25 align-self-end mt-4 mb-2">Crear sala+</a>
     {% for room in rooms %}
     <div class="card room__box border border-success m-3 rounded-lg p-3">
 
+        
         <h4 class="card-header">
             <span style="color:black">@{{ room.host.username }}</span>
             <small style="color:black" class="font-italic">{{ room.created|timesince }}</small>

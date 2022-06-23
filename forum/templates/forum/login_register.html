@@ -5,8 +5,8 @@
 {% block content %}
 
 {% if page == 'login' %}
-
-    <form method="post" class="w-25 mx-auto m-3">
+    
+    <form method="post" class="mx-auto m-3" style="width:40% !important">
         {% csrf_token %}
         <div class="form-group">
           <label for="username-input">Nombre de usuario:</label>
@@ -21,7 +21,7 @@
     </form>
     
     {% else %}
-    <div class="w-25 mx-auto m-3 ">
+    <div class="mx-auto m-2" style="width:40% !important">
         <form action="" method="post">
             {% csrf_token %}
             {{ form|crispy }}
