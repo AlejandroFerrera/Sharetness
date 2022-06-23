@@ -2,12 +2,15 @@
 
 
 {% block content %}
+    <div >
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <p>Estás seguro que deseas eliminar la sala "{{obj}}"</p>
-        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary">No, regresar</a>
-        <input type="submit" value="Eliminar" class="btn btn-danger">
-    </form>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Estás seguro que deseas eliminar la sala "{{obj}}"</p>
+            <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary">No, regresar</a>
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+        </form>
+    </div>
 
 {% endblock content %}
+

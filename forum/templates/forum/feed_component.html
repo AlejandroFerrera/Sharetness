@@ -1,5 +1,5 @@
 <div class="room-container d-flex flex-column">
-    <a href={% url 'create-room' %} class="h4 btn btn-success btn-lg create__button w-25 align-self-end">Crear sala+</a>
+    <a href={% url 'create-room' %} class="h4 btn btn-success btn-lg create__button w-25 align-self-end mt-4 mb-2">Crear sala+</a>
     {% for room in rooms %}
     <div class="card room__box border border-success m-3 rounded-lg p-3">
 
@@ -11,15 +11,17 @@
         <div class="card-body"> 
             <h3 class="card-title"><a href="/room/{{room.id}}">{{ room.name }}</a></h3>
             <p class="card-text" style="color:black;">{{ room.description }}</p>
-            {% if request.user == room.host %}
-            <a href={% url 'update-room' room.id %} class="btn btn-secondary h6">Editar</a>
-            <a href={% url 'delete-room' room.id %} class="btn btn-danger h6">Eliminar</a>  
-            
-                    
-        {% endif %}
+
         <hr>
-        <div class="d-flex justify-content-end">
-            <div class="room__topic">{{ room.topic }}</div>
+        <div class="d-flex">
+            {% if request.user == room.host %}
+            <div class="mr-auto ">
+
+                <a href={% url 'update-room' room.id %} class="btn btn-secondary  align-self-center">Editar</a>
+                <a href={% url 'delete-room' room.id %} class="btn btn-danger  align-self-center">Eliminar</a>       
+            </div>
+            {% endif %}
+            <div class="room__topic ml-auto align-self-center">{{ room.topic }}</div>
         </div>
         </div>
     </div>
