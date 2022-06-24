@@ -28,9 +28,9 @@ class CreateUserForm(UserCreationForm):
         fields = ['username','first_name','email','password1','password2']
 
         labels = {
-            'username': 'Nombre de usuario',
-            'first_name':'Nombre',
-            'email': 'Correo',
-            'password1': 'Contraseña',
-            'password2': 'Confirmar contraseña'
+            'username': _('Nombre de usuario'),
+            'first_name':_('Nombre'),
+            'email': _('Correo'),
+            'password1': _('Contraseña'),
+            'password2': _('Confirmar contraseña')
         }
