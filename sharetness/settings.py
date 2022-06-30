@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'forum.apps.ForumConfig',
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
@@ -71,6 +73,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 WSGI_APPLICATION = 'sharetness.wsgi.application'
 
