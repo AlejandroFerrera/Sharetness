@@ -4,6 +4,46 @@
 
 Hi CS50, I'm Alejandro Ferrera, I'm from Cuba but I'm living in Chile right now. I am a software engenieer student from an institute here in Chile. I'm here today to present my Final Project. The idea behind this project is to create a forum for fitness people. People here can create rooms with diferent topics and share some ideas in chat. The project was created on Django, I wanted to learn django because Python is my favorite language and django is the most required framework by employers.
 
+
+### App Preview :
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+ Register
+</p>
+<img src="https://github.com/AlejandroFerrera/Sharetness/blob/master/screenshots/Register.jpg">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Feed
+</p>
+<img src="https://github.com/AlejandroFerrera/Sharetness/blob/master/screenshots/Feed.jpg">  
+</td>
+</tr>
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+ Create Room View
+</p>
+<img src="https://github.com/AlejandroFerrera/Sharetness/blob/master/screenshots/Create%20Room%20View.jpg">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Room chat
+</p>
+<img src="https://github.com/AlejandroFerrera/Sharetness/blob/master/screenshots/Room%20view.jpg">  
+</td>
+</tr>
+</table>
+
 ## Users system
 For users manipulation (Login, Logout, Sessions) I used the default django user model with some modifications, and I create a superuser that can use the admin panel.
 
