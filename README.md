@@ -8,7 +8,7 @@ Hi CS50, I'm Alejandro Ferrera, I'm from Cuba but I'm living in Chile right now.
 For users manipulation (Login, Logout, Sessions) I used the default django user model with some modifications, and I create a superuser that can use the admin panel.
 
 ## Models
-For database I used SQLite default version in Django and I created different models to handles the database. (Rooms, Topics and messages). The relation was between this tables are implicity in django models.
+For database I used SQLite default version in Django and I created different models to handles the database. (Rooms, Topics and messages). The relation in this tables are implicity in django models.
 
 ## Forms
 I used the form model almost all the time for the CRUD functions.
