@@ -58,3 +58,6 @@ For style I used bootstrap 4 and crispy-form filter for the forms. Also some bas
 
 ## Business Rules
 The business logic is simple, I added a logic for delete a message if this message was created in more than one minute, thanks to django documentation for that example :D.
+
+## API
+This app also has implemented and api that you can consume in a front-end project with Vanilla or other potential framework (React, Vue, Angular)
